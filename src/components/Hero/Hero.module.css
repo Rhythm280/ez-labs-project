@@ -1,0 +1,114 @@
+/* src/components/Hero/Hero.module.css */
+
+.heroSection {
+    min-height: 100vh;
+    /* Make it full screen height */
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Stacked on mobile */
+    align-items: center;
+    gap: 2rem;
+    /* Add padding to account for the fixed navbar */
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+}
+
+/* --- Column 1: Mandala --- */
+.mandalaContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mandala {
+    width: 100%;
+    max-width: 400px;
+    /* TODO: Adjust size from Figma */
+    height: auto;
+
+    /* Animation from the video (00:00 - 00:03) */
+    animation: fadeInOut 5s infinite ease-in-out;
+}
+
+/* --- Column 2: Text Content --- */
+.contentContainer {
+    text-align: center;
+    /* Center text on mobile */
+}
+
+.title {
+    /* Use the handwritten font */
+    font-family: var(--font-heading);
+    /* Get this size from Figma, "Island Moments" is large */
+    font-size: 5rem;
+    font-weight: normal;
+    line-height: 1.2;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    /* Use the body font, but bold */
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    /* TODO: Get this color from Figma */
+    color: #a08a8a;
+}
+
+.description {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    /* Constrain the width for readability */
+    max-width: 600px;
+    margin: 0 auto;
+    /* Center the constrained p tag */
+}
+
+/* --- Keyframe Animation --- */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+/* --- Responsive Breakpoint --- */
+@media (min-width: 768px) {
+    .heroSection {
+        grid-template-columns: 1fr 1fr;
+        /* 2 columns on desktop */
+        gap: 4rem;
+        padding-top: 4rem;
+        /* Reset padding */
+    }
+
+    .contentContainer {
+        text-align: left;
+        /* Align text left on desktop */
+    }
+
+    .description {
+        margin: 0;
+        /* Un-center for left align */
+    }
+
+    .mandala {
+        max-width: 500px;
+    }
+
+    .title {
+        font-size: 6.5rem;
+        /* Larger font on desktop */
+    }
+}

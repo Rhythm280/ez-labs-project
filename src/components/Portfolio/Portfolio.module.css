@@ -1,0 +1,119 @@
+/* src/components/Portfolio/Portfolio.module.css */
+
+.portfolioSection {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    /* Contains the corner doodles */
+}
+
+.cameraDoodle {
+    /* TODO: Position from Figma (00:27) */
+    width: 150px;
+    position: absolute;
+    top: 4rem;
+    left: 2rem;
+    display: none;
+    /* Hide on mobile */
+}
+
+.title {
+    /* TODO: Get font styles */
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    /* TODO: Get font styles */
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-text);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.arrow:hover {
+    opacity: 1;
+}
+
+.videoContainer {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.videoPlayer {
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    /* This creates the space for the film strip */
+    padding: 1rem 0;
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.playButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* TODO: Style play button from Figma */
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: transform 0.2s;
+    z-index: 2;
+}
+
+.videoPlayer:hover .playButton {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.filmStripFrame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* TODO: Adjust size to frame the video */
+    width: 120%;
+    height: auto;
+    pointer-events: none;
+    /* Allows clicking "through" it */
+    z-index: 1;
+}
+
+/* FIXED: Removed style for missing .cornerPattern */
+
+/* --- Responsive Breakpoint --- */
+@media (min-width: 768px) {
+    .cameraDoodle {
+        display: block;
+        /* Show doodles on desktop */
+    }
+}

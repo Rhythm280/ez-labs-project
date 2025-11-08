@@ -1,0 +1,165 @@
+/* src/components/Intro/Intro.module.css */
+
+.introSection {
+    /* This layout is complex. We use CSS Grid */
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile first stack */
+    gap: 4rem;
+}
+
+/* --- Left Column: Sticky Note --- */
+.stickyNoteContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stickyNote {
+    position: relative;
+    /* This lets us position the <p> tag inside it */
+    width: 100%;
+    max-width: 400px;
+}
+
+.stickyNote img {
+    width: 100%;
+    /* TODO: Get exact rotation and shadow from Figma */
+    transform: rotate(-3deg);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stickyNote p {
+    position: absolute;
+    /* TODO: Fine-tune this positioning based on your image */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-3deg);
+    width: 80%;
+    /* TODO: Get handwritten font styles from Figma */
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #5c4b4b;
+    /* TODO: Get this color from Figma */
+    text-align: center;
+}
+
+/* --- Right Column: Illustrations --- */
+.illustrationContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    /* Ensure it has height */
+}
+
+.illustration {
+    position: relative;
+    /* This is the anchor for all doodles */
+    width: 100%;
+    max-width: 600px;
+    /* Use aspect-ratio to maintain its shape */
+    aspect-ratio: 4 / 3;
+}
+
+.silhouettes {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.indiaGate {
+    /* TODO: Position from Figma (00:06) */
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.labelBranding,
+.labelFilm,
+.labelArt {
+    /* TODO: Position these labels with arrows */
+    position: absolute;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #5c4b4b;
+    /* TODO: Get color from Figma */
+    z-index: 3;
+}
+
+.labelBranding img,
+.labelFilm img,
+.labelArt img {
+    width: 50px;
+    /* TODO: Adjust size */
+}
+
+/* TODO: Get exact positions from Figma/Video */
+.labelBranding {
+    bottom: 10%;
+    left: 0;
+}
+
+.labelFilm {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.labelArt {
+    top: 10%;
+    right: 0;
+}
+
+/* --- Bottom Row: CTA --- */
+.cta {
+    text-align: center;
+}
+
+.cta p {
+    /* TODO: Get font styles */
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    margin-bottom: 1.5rem;
+}
+
+.button {
+    /* TODO: Style this button from Figma (00:07) */
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    font-family: var(--font-body);
+}
+
+.button:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* --- Responsive Breakpoint --- */
+@media (min-width: 1024px) {
+    .introSection {
+        grid-template-columns: 1fr 1fr;
+        /* 2 columns on desktop */
+        grid-template-rows: auto auto;
+        /* 2 rows */
+        gap: 3rem;
+    }
+
+    .cta {
+        /* Make CTA span both columns at the bottom */
+        grid-column: 1 / -1;
+    }
+}

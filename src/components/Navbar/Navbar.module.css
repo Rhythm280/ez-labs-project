@@ -1,0 +1,114 @@
+/* src/components/Navbar/Navbar.module.css */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    z-index: 1000;
+    /* Stays on top of everything */
+    transition: background-color 0.3s;
+}
+
+/* Optional: You can add JavaScript to detect scroll 
+  and add this class for a cool effect.
+*/
+/*
+.headerScrolled {
+  background-color: rgba(253, 250, 246, 0.8);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+*/
+
+.logo img {
+    /* TODO: Get exact height from Figma */
+    height: 2rem;
+    width: auto;
+}
+
+.menuButton {
+    background: none;
+    border: none;
+    /* TODO: Get icon size/color from Figma */
+    font-size: 1.5rem;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+/* --- Full-Screen Overlay --- */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* TODO: Get this background color from video (00:40) */
+    background-color: rgba(253, 250, 246, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1001;
+    /* Stays on top of the header */
+
+    /* Logic for hiding/showing */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* This class is added by React when state is true */
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    /* TODO: Get icon size/color from Figma */
+    font-size: 2rem;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.overlayMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.overlayMenu a {
+    /* TODO: Get overlay link styles from Figma (00:40) */
+    font-family: var(--font-body);
+    /* Or --font-heading? Check Figma */
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: transform 0.2s ease;
+}
+
+.overlayMenu a:hover {
+    transform: scale(1.1);
+}
+
+.letsTalkButton {
+    /* TODO: Get button styles from Figma (00:40) */
+    padding: 0.75rem 1.5rem !important;
+    /* Use !important to override 'a' styles */
+    background-color: var(--color-primary) !important;
+    color: var(--color-white) !important;
+    border-radius: 4px;
+    font-size: 1.5rem !important;
+}

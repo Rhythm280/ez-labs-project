@@ -1,0 +1,6 @@
+/* src/App.module.css */
+.App {
+    /* This just wraps the whole site */
+    /* This prevents any horizontal scroll from doodles, etc. */
+    overflow-x: hidden;
+}

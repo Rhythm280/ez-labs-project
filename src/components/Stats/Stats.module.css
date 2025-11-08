@@ -1,0 +1,99 @@
+/* src/components/Stats/Stats.module.css */
+
+.statsSection {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile first */
+    gap: 4rem;
+    align-items: center;
+}
+
+/* --- Left Column --- */
+.content {
+    text-align: center;
+    /* Center on mobile */
+}
+
+.title {
+    /* TODO: Get font styles */
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.description {
+    /* TODO: Get font styles */
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    /* Constrain line width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.statNumber {
+    /* TODO: Get font styles (00:12) */
+    font-size: 3rem;
+    font-weight: 700;
+    color: #cda434;
+    /* TODO: Get this gold color from Figma */
+}
+
+.statLabel {
+    /* TODO: Get font styles */
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+}
+
+/* --- Right Column --- */
+.illustration {
+    text-align: center;
+}
+
+.quote {
+    /* TODO: Get font styles (00:12) */
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.mountainImage {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* --- Responsive Breakpoint --- */
+@media (min-width: 768px) {
+    .statsSection {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    .content {
+        text-align: left;
+        /* Align left on desktop */
+    }
+
+    .description {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .illustration {
+        text-align: right;
+        /* Align right on desktop */
+    }
+}

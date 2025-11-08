@@ -1,0 +1,200 @@
+/* src/components/Services/Services.module.css */
+
+.servicesSection {
+    position: relative;
+    /* TODO: Get bg color from Figma (00:18) */
+    background-color: transparent;
+    /* Or var(--color-background) */
+    min-height: 100vh;
+    /* Add padding to make space for the border image */
+    padding-bottom: 100px;
+}
+
+.title {
+    /* TODO: Get title styles from Figma (00:18) */
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.cardGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* 1 column on mobile */
+    gap: 3rem;
+    max-width: 64rem;
+    /* 1024px */
+    margin: 0 auto;
+}
+
+.card {
+    position: relative;
+    /* TODO: Create the "Polaroid" effect from Figma (00:18) */
+    background: var(--color-white);
+    padding: 1rem;
+    padding-bottom: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    /* TODO: Get tilt from video */
+    transform: rotate(-2deg);
+}
+
+/* Make each card tilt differently */
+.card:nth-child(2) {
+    transform: rotate(1deg);
+}
+
+.card:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+.card:hover {
+    transform: translateY(-5px) rotate(0);
+    /* Straighten on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tape {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    /* TODO: Adjust size */
+    opacity: 0.7;
+}
+
+.cardImage {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.card h3 {
+    /* TODO: Get font from Figma */
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+
+.borderPattern {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    /* TODO: Adjust height as needed */
+    z-index: 1;
+}
+
+/* --- Detail View (00:19, 00:48) --- */
+
+.detailContainer {
+    /* This is the new content that appears */
+    max-width: 64rem;
+    /* 1024px */
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    /* Sits above the border pattern */
+}
+
+.backButton {
+    /* TODO: Style the back button (00:19) */
+    background: none;
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.backButton:hover {
+    background-color: #f0f0f0;
+    /* TODO: Use a color var */
+}
+
+.quote {
+    /* TODO: Style the quote (00:48) */
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.detailContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.detailImage {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.detailText {
+    /* TODO: Style text */
+}
+
+.detailText h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.detailText ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    line-height: 1.8;
+}
+
+/* FIXED: New grid style for your individual doodle icons */
+.doodleGrid {
+    display: grid;
+    /* Creates 2 columns of icons */
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.doodleGrid img {
+    width: 100%;
+    max-width: 120px;
+    /* TODO: Adjust icon size */
+    opacity: 0.7;
+}
+
+.exploreButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    font-weight: 700;
+    font-family: var(--font-body);
+}
+
+.exploreButton img {
+    width: 30px;
+}
+
+
+/* --- Responsive Breakpoints --- */
+@media (min-width: 768px) {
+    .cardGrid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns on desktop */
+    }
+
+    .detailContent {
+        /* TODO: Check video for layout (00:48). Looks like 3 columns */
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
