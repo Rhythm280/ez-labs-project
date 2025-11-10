@@ -1,4 +1,4 @@
-# 🌐 EZ Labs - Front-End Intern Assignment
+# 🌐 Responsive Agency SPA (React & API)
 
 This is a **single-page responsive web application** built for the **EZ Labs Front-End Intern Assessment**.  
 The project is a **pixel-perfect recreation** of the provided Figma design, developed using **React (Vite)** and **CSS Modules**.
